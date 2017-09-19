@@ -101,6 +101,7 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
+    float percentageViewWidth = 0.9f;
     private void updateSlideOffset(float slideOffset) {
         coordinatorLayout.setX((navigationView.getWidth() + 20) * slideOffset);
 
@@ -110,8 +111,8 @@ public class MainActivity extends AppCompatActivity
                 coordinatorLayout.getLayoutParams();
         if (slideOffset == 0)
             params.height = ViewGroup.LayoutParams.MATCH_PARENT;
-        else
-            params.height = (int) (height - height * 0.1f * slideOffset);
+        else // percentage can adjust
+            params.height = (int) (height - height * (1f-percentageViewWidth) * slideOffset);
         coordinatorLayout.setLayoutParams(params);
         // Adjust Size : End
 
